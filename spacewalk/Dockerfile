@@ -12,7 +12,7 @@ MAINTAINER sixpac009
 RUN yum update -y
 
 RUN yum install -y http://yum.spacewalkproject.org/2.1/Fedora/20/x86_64/spacewalk-repo-2.1-2.fc20.noarch.rpm
-Run yum install -y spacewalk-setup-post
+
 RUN cat > /etc/yum.repos.d/jpackage-generic.repo << EOF
 [jpackage-generic]
 name=JPackage generic
