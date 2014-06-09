@@ -6,7 +6,7 @@ FROM     fedora:20
 MAINTAINER sixpac009
 
 # configure the hostname 
-RUN echo "NAME=docker.spacewalk.example.org" > /etc/sysconfig/network; hostname "docker.spacewalk.example.org"
+#RUN echo "NAME=docker.spacewalk.example.org" > /etc/sysconfig/network; hostname "docker.spacewalk.example.org"
 
 # make sure the package repository is up to date
 RUN yum update
