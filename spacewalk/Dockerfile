@@ -2,7 +2,7 @@
 #
 # VERSION               0.0.1
 
-FROM     fedora:20
+FROM     fedora
 MAINTAINER sixpac009
 
 # configure the hostname 
@@ -38,7 +38,9 @@ RUN yum downgrade -y rpm{,-build-libs,-devel,-libs,-python,-build,-apidocs,-cron
 RUN yum install -y spacewalk-postgresql
 
 # configure the firewall
-RUN firewall-cmd --add-service=http
-RUN firewall-cmd --add-service=https
+#RUN firewall-cmd --add-service=http
+#RUN firewall-cmd --add-service=https
+EXPOSE 80
 EXPOSE 443
+EXPOSE 69
 # CMD    ["/usr/sbin/sshd", "-D"]
