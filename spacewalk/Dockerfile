@@ -13,15 +13,24 @@ RUN yum update -y
 
 RUN yum install -y http://yum.spacewalkproject.org/2.1/Fedora/20/x86_64/spacewalk-repo-2.1-2.fc20.noarch.rpm
 
-RUN cat > /etc/yum.repos.d/jpackage-generic.repo << EOF
-[jpackage-generic]
-name=JPackage generic
+#RUN cat > /etc/yum.repos.d/jpackage-generic.repo << EOF
+#[jpackage-generic]
+#name=JPackage generic
 #baseurl=http://mirrors.dotsrc.org/pub/jpackage/5.0/generic/free/
-mirrorlist=http://www.jpackage.org/mirrorlist.php?dist=generic&type=free&release=5.0
-enabled=1
-gpgcheck=1
-gpgkey=http://www.jpackage.org/jpackage.asc
-EOF
+##mirrorlist=http://www.jpackage.org/mirrorlist.php?dist=generic&type=free&release=5.0
+#enabled=1
+#gpgcheck=1
+#gpgkey=http://www.jpackage.org/jpackage.asc
+#EOF
+RUN echo "[jpackage-generic]" > /etc/yum.repos.d/jpackage-generic.repo
+RUN echo "name=JPackage generic" >> /etc/yum.repos.d/jpackage-generic.repo
+RUN echo "#baseurl=http://mirrors.dotsrc.org/pub/jpackage/5.0/generic/free/" >> /etc/yum.repos.d/jpackage-generic.repo
+RUN echo "mirrorlist=http://www.jpackage.org/mirrorlist.php?dist=generic&type=free&release=5.0" >> /etc/yum.repos.d/jpackage-generic.repo
+RUN echo "enabled=1" >> /etc/yum.repos.d/jpackage-generic.repo
+RUN echo "gpgcheck=1" >> /etc/yum.repos.d/jpackage-generic.repo
+Run echo "gpgkey=http://www.jpackage.org/jpackage.asc" >> /etc/yum.repos.d/jpackage-generic.repo
+
+
 #(for postgrsql embedded install) comment out if not installing db localy
 RUN yum install -y spacewalk-setup-postgresql
 RUN yum install -y rpm-build rpm-python
